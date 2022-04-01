@@ -1,18 +1,19 @@
 <?php
-use Doctrine\ORM\Annotation as ORM;
+// use Doctrine\ORM\Annotation as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 /**
- * @Entity @Table(name="roles")
+ * @ORM\Entity @ORM\Table(name="roles")
  **/
  class Roles
  {
-     /** @Id @Column(type="integer") @GeneratedValue **/
+     /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue **/
     private $id;
-    /**  @Column(type="string")**/
+    /**  @ORM\Column(type="string")**/
     private $nom;
      /**
      * Many Roles have Many Users.
-     * @ManyToMany(targetEntity="User", mappedBy="roles")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="roles")
      */
     private $users;
 
